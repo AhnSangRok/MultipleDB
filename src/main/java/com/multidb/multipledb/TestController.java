@@ -1,7 +1,6 @@
 package com.multidb.multipledb;
 
-import com.multidb.multipledb.replica.ReplicaRepository;
-import com.multidb.multipledb.source.SourceRepository;
+import com.multidb.multipledb.repository.TestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
 
     private final TestService testService;
-    private final SourceRepository sourceRepository;
-    private final ReplicaRepository replicaRepository;
+    private final TestRepository repository;
 
     @PostMapping("/api/source/{name}")
     public ResponseEntity postSource(@PathVariable String name) {
@@ -28,11 +26,11 @@ public class TestController {
 
     @GetMapping("/api/source")
     public ResponseEntity getSource() {
-        return new ResponseEntity(sourceRepository.findAll(),HttpStatus.OK);
+        return new ResponseEntity(repository.findAll(),HttpStatus.OK);
     }
     @GetMapping("/api/replica")
     public ResponseEntity getReplica() {
-        return new ResponseEntity(replicaRepository.findAll(),HttpStatus.OK);
+        return new ResponseEntity(repository.findAll(),HttpStatus.OK);
     }
 
 }

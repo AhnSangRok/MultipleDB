@@ -1,4 +1,4 @@
-package com.multidb.multipledb.source;
+package com.multidb.multipledb.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.multidb.multipledb.replica;
+package com.multidb.multipledb.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -32,42 +32,6 @@ import java.util.HashMap;
         transactionManagerRef = "replicaTransactionManager"
 )
 public class ReplicaConfig {
-
-//    @Autowired
-//    private Environment env; //이거 알아오기
-//
-//    @Bean
-//    public LocalContainerEntityManagerFactoryBean replicaEntityManager(){
-//        LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
-//        em.setDataSource(replicaDataSource());
-//        em.setPackagesToScan(new String[] {"com.multidb.multipledb.Entity"});
-//
-//        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-//        em.setJpaVendorAdapter(vendorAdapter);
-//        //Hibernate 설정
-//        HashMap<String, Object> properties = new HashMap<>();
-//        properties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-//        properties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-//        em.setJpaPropertyMap(properties);
-//        return em;
-//    }
-//
-//    @Bean
-//    public DataSource replicaDataSource(){
-//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-//        dataSource.setDriverClassName(env.getProperty("spring.replica-datasource.driver-class-name"));
-//        dataSource.setUrl(env.getProperty("spring.replica-datasource.jdbc-url"));
-//        dataSource.setUsername(env.getProperty("spring.replica-datasource.username"));
-//        dataSource.setPassword(env.getProperty("spring.replica-datasource.password"));
-//        return DataSourceBuilder.create().build();
-//    }
-//
-//    @Bean
-//    public PlatformTransactionManager replicaTransactionManager(){
-//        JpaTransactionManager transactionManager = new JpaTransactionManager();
-//        transactionManager.setEntityManagerFactory(replicaEntityManager().getObject());
-//        return transactionManager;
-//    }
 
     @Bean
     @ConfigurationProperties(prefix = "spring.replica-datasource")
